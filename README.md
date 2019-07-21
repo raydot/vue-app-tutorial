@@ -39,16 +39,15 @@ A `.vue` file always consists of three things:
 
 Example:
 
-`<template></template>
-
-<script>
-    export default {
-        name: 'component-name',
-    }
-</script>
-
-<style scoped></style>
-`
+    <template></template>
+    
+    <script>
+	    export  default {
+		    name:  'component-name',
+        }
+    </script>
+    
+     <style scoped></style>
 
 The data and logic for the component goes into `<script>` but only `name` is required.  The `<style>` tag is just CSS.  'scoped' means it only applys to this component and not globally.
 
