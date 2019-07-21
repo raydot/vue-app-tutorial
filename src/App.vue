@@ -6,7 +6,11 @@
 
     <!-- <employee-table /> -->
     <!-- Pull the data from the script instead! -->
-    <employee-table :employees="employees" @delete:employee="deleteEmployee"/>
+    <employee-table 
+      :employees="employees" 
+      @delete:employee="deleteEmployee"
+      @edit:employee="editEmployee"
+    />
 
     <!-- Notice the use of shorthand.  This is equal to
     <employee-table v-bind:employees="employees" /> -->
@@ -64,6 +68,11 @@
       deleteEmployee(id) {
         this.employees = this.employees.filter(
           employee => employee.id !== id
+        )
+      },
+      editEmployee(id, updatedEmployee) {
+        this.employees = this.employees.map(employee =>
+          employee.id === id ? updatedEmployee : employee
         )
       },
     },
