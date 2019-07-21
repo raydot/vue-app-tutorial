@@ -37,6 +37,10 @@
 <!--Let's refactor to use data!-->
 <template>
     <div id="employee-table">
+        <!-- Just in case the table is empty! -->
+        <p v-if="employees.length < 1" class="empty-table">
+            No employees.  Add some!
+        </p>
         <table>
             <thead>
                 <tr>

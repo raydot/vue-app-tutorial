@@ -6,7 +6,7 @@
 
     <!-- <employee-table /> -->
     <!-- Pull the data from the script instead! -->
-    <employee-table :employees="employees" />
+    <employee-table :employees="employees" @delete:employee="deleteEmployee"/>
 
     <!-- Notice the use of shorthand.  This is equal to
     <employee-table v-bind:employees="employees" /> -->
@@ -60,7 +60,12 @@
         const newEmployee = { ...employee, id }
 
         this.employees = [...this.employees, newEmployee]
-      }
+      },
+      deleteEmployee(id) {
+        this.employees = this.employees.filter(
+          employee => employee.id !== id
+        )
+      },
     },
   }
 
